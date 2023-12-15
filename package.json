@@ -2,9 +2,5 @@
     "name": "Test",
     "description": "Test",
     "version": "1.0.0",
-    "main": "main.js",
-    "dependencies": {
-        "@sap/xsenv": "^3.3.2",
-        "@sap/async-xsjs": "1.0.6"
-    }
+    "main": "main.js"
 }
