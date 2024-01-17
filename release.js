@@ -5,7 +5,7 @@ var gitHost = "https://api."+gitUrl[2]
 var releaseName = process.env.RELEASE_NAME+"-"+process.env.CLOUDCI_GIT_COMMIT
 
 const octokit = new Octokit({
-  auth: releaseToken_password,
+  auth: process.env.releaseToken_password,
   baseUrl: `${gitHost}/`,
 });
 
