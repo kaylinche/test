@@ -1,12 +1,18 @@
 ---
 general:
   buildTool: "npm"
-  jenkinsKubernetes:
-    securityContext:
-      runAsUser: 0
-      fsGroup: 0
 service:
   buildToolVersion: "N18"
+  stages:
+    Release:
+      credentialVariables:
+      - name: "releaseToken"
+        credentialId: "gh-add-release-d036667"
+      stringVariables:
+      - name: "RELEASE_NAME"
+        value: "release"
+      runFirst:
+        command: "npm install octokit; node ./release.js"
 stages:
   Build:
     mavenExecuteStaticCodeChecks: false
@@ -14,13 +20,14 @@ stages:
   Additional Unit Tests:
     npmExecuteScripts: false
   Acceptance:
-    cloudFoundryDeploy: false
     npmExecuteEndToEndTests: false
+    cloudFoundryDeploy: false
   Compliance:
     sonarExecuteScan: false
   Release:
-    cloudFoundryDeploy: false
+    tmsExport: false
     tmsUpload: false
+    cloudFoundryDeploy: false
 steps:
   artifactPrepareVersion:
     versioningType: "cloud_noTag"
