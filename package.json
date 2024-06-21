@@ -3,4 +3,7 @@
     "description": "Test",
     "version": "1.0.0",
     "main": "main.js"
+    "devDependencies" : {
+        "typescript": "^5.5.2"
+    }
 }
