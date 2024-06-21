@@ -7,5 +7,3 @@ modules:
  - name: MyNode
    type: npm
    path: .
-   build-parameters:     
-     builder: zip
