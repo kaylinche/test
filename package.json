@@ -3,5 +3,5 @@
     "description": "Test",
     "version": "1.0.0",
     "main": "main.js",
-    "engines" : { "node" : "^22" }
+    "engines" : { "node" : ">22" }
 }
